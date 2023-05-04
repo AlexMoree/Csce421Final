@@ -34,6 +34,7 @@
 \usepackage{xcolor}         % colors
 \usepackage{color,soul}
 \usepackage{hyperref}
+\usepackage{graphicx}
 
 
 \title{Final Project Write-up}
@@ -96,7 +97,24 @@ We conducted hyperparameter tuning using sklearn's GridSearchCV. GridSearchCV ta
 
 \section{Results}
 
-Your results should include tables and figures that compare your method to others. An example of another method would be my baseline that I've provided you with. To evaluate your model, you will download the evaluation dataset from \href{https://www.kaggle.com/competitions/csce-421-machine-learning-spring-2023-section-501/data}{here}. You will use this data as the input to your trained model. Record the outputs of the evaluation dataset and submit these results on kaggle. Your models will be submitted on the class Kaggle competition and evaluated using a held out dataset. We will use AUC-ROC to measure the fit of your model on our held out dataset. If you do better than my baseline, you get an automatic 80$\%$ on the final.
+The results of our model have been quite good. To demonstrate we preprocessed our data as before and split off 20\% of the data to be validation data. We trained numerous different models on the training data and tested it on the validation data using four different metrics. 
+\includegraphics[width=\linewidth]{FinalResults.png}
+We abbreviated the names of the different models to make them easier to read. You can use the table below if you are unsure as to what any model is. 
+
+\begin{tabular}{|c|c|}
+    \hline
+    Abbreviation & Model\\
+    \hline
+    Lin & Linear Regression\\
+    GBR & Gradient Boosting Regressor\\
+    RFC & Random Forest Classifier\\
+    Log & Logistic Regression\\
+    SVM & Support Vector Machine\\
+    KNN & k-Nearest Neighbors\\
+    \hline
+\end{tabular}
+
+As you can see our model preformed best on every metric except mean squared error. It achieved more than 92\% accuracy on the hidden test data. 
 
 \section{Conclusion}
 
