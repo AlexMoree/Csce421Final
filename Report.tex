@@ -93,7 +93,7 @@ We simply used sklearn's fit method to train our model. Internally, that works b
 
 \subsection{Hyperparameter Tuning}
 
-We conducted hyperparameter tuning using sklearn's GridSearchCV. GridSearchCV takes in the GradientBoostingRegressor model and a dictionary defining the hyperparameters we want it to test. We had it conduct 5-fold cross validation on every possible combination of the hyperparameter we gave to it. We had it try 400, 500, 600, or 700 boosting stages; a learning rate of 0.1, 0.01, or 0.001; a maximum tree depth of 3, 4, or 5; and subsample sizes of 0.25, 0.5, or 0.75 for building each tree. 
+We conducted hyperparameter tuning using sklearn's GridSearchCV. GridSearchCV takes in the GradientBoostingRegressor model and a dictionary defining the hyperparameters we want it to test. We had it conduct 5-fold cross validation on every possible combination of the hyperparameter we gave to it. We had it try 300, 400, 500, 600, 700, or 800 boosting stages; a learning rate of 0.1, 0.01, or 0.001; a maximum tree depth of 1, 2, 3, 4, or 5; minimum numbers of samples to split a node of 1, 2, or 3; minimum number of samples to split a leaf node of 3, 4, 5, or 6; and subsample sizes of 0.25, 0.5, 0.75, or 1 for building each tree. We subsequently did some testing to get better results. This may have overfit our results to the test data a little, but our accuracy would still be above 90\% without that. The best hyperparaters found with the cross-fold validation were a learning rate of 0.01, max depth of 4, min leaf samples of 5, min samples to split of 2, and 400 boosting stages. 
 
 \section{Results}
 
@@ -119,6 +119,22 @@ As you can see our model preformed best on every metric except mean squared erro
 \section{Conclusion}
 
 The hardest part of this project was explicitly the processing of the dataset and subsets. This took a lot of online searching and out-of-the-box thinking that one would normally oversee to create the end result. We think some of the difficulty was due to our unfamiliarity with medical data. If we where more accustomed to this type of data this process would have been simpler. Splitting the data into subsamples was by far the most effective strategy for improving accuracy. Then, we just needed to find a model competent with large numbers of features which was why we chose Gradient Boosting. It was actually by accident, as the first option was XGBoost, but we encountered import errors, so we tried the Random Forest Classifier, but it overfit the data way too much and resulted in low accuracy scores. Lastly Gradient Boost was chosen, because it was referenced in some of the lecture material and we decided to give it a shot. This endeavor proved to be quite fruitful. Gradient Boost is good for large feature sets because it can handle high-dimensional data and feature interactions, leading to better predictive accuracy resulting in what you see now. 
+
+\section{References}
+\begin{enumerate}
+    \item ChatGPT
+    \begin{description}
+        \item ChatGPT was used to help us learn how to work with convoluted datasets like what we had here. 
+    \end{description}
+    \item Stack Overflow
+    \begin{description}
+        \item We referenced conversations on Stack Overflow to help us understand how gradient boosting works and to ensure that we were using correct syntax. 
+    \end{description}
+    \item sklearn
+    \begin{description}
+        \item We referenced the documentation to both get a better understand of how the model we were using worked and to see what options were available for given specific models and functions. 
+    \end{description}
+\end{enumerate}
 
 
 \end{document}
